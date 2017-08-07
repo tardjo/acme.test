@@ -1,6 +1,6 @@
 class SettingService
-  def get_all
-    Setting.get_all
+  def get_all(params)
+    Setting.get_all(params)
   end
 
   def create_setting(params)

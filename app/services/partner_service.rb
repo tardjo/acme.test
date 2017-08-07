@@ -1,6 +1,6 @@
 class PartnerService
-  def get_all
-    Partner.get_all
+  def get_all(params)
+    Partner.get_all(params)
   end
 
   def create_partner(params)

@@ -18,5 +18,8 @@
           <td><%= link_to 'Edit', edit_setting_path(setting.id) %> | <%= link_to 'Delete', destroy_setting_path(setting.id), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
+      <tr>
+        <td colspan="6" class="center-position"><%= paginate @settings %></td>
+      </tr>
     </table>
 </div>

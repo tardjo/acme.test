@@ -5,7 +5,8 @@ class HomeController < ApplicationController
   before_action :get_setting, only: [:edit_setting, :update_setting, :destroy_setting]
 
   def index
-    @partners = @partner_service.get_all
+    @partners = @partner_service.get_all(params)
+    @price_per_click = Setting.find_by(object_key: 'price_per_click').object_value.to_f rescue 1000.to_f
   end
 
   def new
@@ -33,7 +34,7 @@ class HomeController < ApplicationController
   end
 
   def setting
-    @settings = @setting_service.get_all
+    @settings = @setting_service.get_all(params)
   end
 
   def new_setting
@@ -58,6 +59,10 @@ class HomeController < ApplicationController
     message = @setting_service.destroy_setting(@setting)
 
     redirect_to settings_url, message
+  end
+
+  def detail
+    @general_service.calculate_by_partner(params)
   end
 
   private

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   put 'settings/:id', to: 'home#update_setting', as: 'update_setting'
   delete 'settings/:id', to: 'home#destroy_setting', as: 'destroy_setting'
 
+  get '/:name', to: 'home#detail', as: 'detail'
+
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
