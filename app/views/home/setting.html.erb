@@ -1,0 +1,22 @@
+<div class="padding50px">
+    <%= link_to 'New Setting', new_setting_path, class: 'btn btn-primary' %>
+    <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+    <table class="table margintop20px">
+      <tr>
+          <th>Object Key</th>
+          <th>Object Value</th>
+          <th>Action</th>
+      </tr>
+      <% @settings.each do |setting| %>
+        <tr>
+          <td>
+            <%= setting.object_key %>
+          </td>
+          <td>
+            <%= setting.object_value %>
+          </td>
+          <td><%= link_to 'Edit', edit_setting_path(setting.id) %> | <%= link_to 'Delete', destroy_setting_path(setting.id), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </table>
+</div>

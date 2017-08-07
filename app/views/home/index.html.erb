@@ -1,0 +1,22 @@
+<div class="padding50px">
+  <%= link_to 'New Partner', new_partner_path, class: 'btn btn-primary' %>
+  <%= link_to 'Settings', settings_path, class: 'btn btn-default' %>
+  <table class="table margintop20px">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Total Payment</th>
+        <th>Total View</th>
+        <th>Action</th>
+    </tr>
+    <% @partners.each do |partner| %>
+      <tr>
+        <td><%= partner.id.to_s %></td>
+        <td><%= partner.name %></td>
+        <td><%= get_total_payment(partner.total_payment) %></td>
+        <td><%= get_total_view(partner.total_view) %></td>
+        <td><%= link_to 'Edit', edit_partner_path(partner.id) %> | <%= link_to 'Delete', destroy_partner_path(partner.id), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

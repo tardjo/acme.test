@@ -1,0 +1,13 @@
+<%= form_tag @url, method: @method do %>
+  <div class="form-group">
+    <label for="exampleInputObjectKey">Object Key</label>
+    <input type="text" class="form-control" name="setting[object_key]" id="exampleInputObjectKey" value="<%= getObjectKey(@setting) %>" placeholder="Object Key" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputObjectValue">Object Value</label>
+    <input type="text" class="form-control" name="setting[object_value]" id="exampleInputObjectValue" value="<%= getObjectValue(@setting) %>" placeholder="Object Value" required>
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+  <%= link_to "Back", settings_path, class: "btn btn-default" %>
+<% end %>
