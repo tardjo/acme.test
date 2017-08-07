@@ -19,9 +19,9 @@ class GeneralService
         partner.total_view = total_view
         price_per_click = Setting.find_by(object_key: 'price_per_click')
         if price_per_click.present?
-            object_value = price_per_click.object_value.to_i rescue 1000
+            object_value = price_per_click.object_value.to_f rescue 1000.to_f
         else
-            object_value = 1000
+            object_value = 1000.to_f
         end
 
         partner.total_payment = total_view * object_value
